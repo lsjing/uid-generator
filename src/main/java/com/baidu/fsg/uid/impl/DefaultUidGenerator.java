@@ -71,7 +71,7 @@ public class DefaultUidGenerator implements UidGenerator, InitializingBean {
     protected long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1463673600000L);
 
     /** Stable fields after spring bean initializing */
-    protected BitsAllocator bitsAllocator;
+    protected BitsAllocator bitsAllocator = new BitsAllocator(timeBits, workerBits, seqBits);
     protected long workerId;
 
     /** Volatile fields caused by nextId() */
